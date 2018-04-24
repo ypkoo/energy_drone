@@ -8,16 +8,17 @@ flags = tf.flags
 # flags for setting
 flags.DEFINE_integer("n_s", -1, "Number of sample (-1: read all data from file)")
 flags.DEFINE_integer("n_h", 0, "Number of histroy we are interesed in from data")
-flags.DEFINE_integer("n_e", 60, "Number of epoch for training")
+flags.DEFINE_integer("n_e", 50, "Number of epoch for training")
 flags.DEFINE_integer("b_s", 40, "Size of batch for each training epoch")
 # flags.DEFINE_string("f_n", "0415233753_log_mod2.csv", "filename of data file")
-flags.DEFINE_string("f_n", "exp2-3.csv", "filename of data file")
+flags.DEFINE_string("f_n", "0424_merged.csv", "filename of data file")
+flags.DEFINE_string("f_dir", "data/", "data file directory")
 
 
 # For flexible model
 flags.DEFINE_integer("depth", 5, "Depth of network (>1)")
 flags.DEFINE_integer("h_size", 300, "Hidden node size")
-flags.DEFINE_float("dropout_rate", 0.00, "Dropout rate")
+flags.DEFINE_float("dropout_rate", 0.05, "Dropout rate")
 
 # For CNN-1D model
 flags.DEFINE_integer("n_f", 7, "Number of Filter")

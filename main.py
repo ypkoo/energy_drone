@@ -46,14 +46,13 @@ FLAGS = config.flags.FLAGS
 
 if __name__ == '__main__':
 
-	dataframe_for_x = pd.read_csv(FLAGS.f_n)
-	dataframe_for_y = pd.read_csv(FLAGS.f_n)
+	dataframe_for_x = pd.read_csv(FLAGS.f_dir+FLAGS.f_n)
+	dataframe_for_y = pd.read_csv(FLAGS.f_dir+FLAGS.f_n)
 
 	HISTORY_NUM = FLAGS.n_h
 
 	history_labels = ['vel_x', 'vel_y', 'vel_z']
-	x_labels = ['vel_x', 'vel_y', 'vel_z', 'acc_x', 'acc_y', 'acc_z', 'rc0', 'rc1', 'rc2', 'rc3']
-	# x_labels = ['vel_x', 'vel_y', 'vel_z', 'rc0', 'rc1', 'rc2', 'rc3']
+	x_labels = ['vel_x', 'vel_y', 'vel_z', 'acc_x', 'acc_y', 'acc_z', 'roll', 'pitch', 'yaw', 'rc0', 'rc1', 'rc2', 'rc3']
 	y_label = ['power']
 
 	# make history columns
