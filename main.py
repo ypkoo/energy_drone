@@ -64,6 +64,9 @@ if __name__ == '__main__':
 	dataframe_for_x = dataframe_for_x.loc[:,x_labels]
 	dataframe_for_y = dataframe_for_y.loc[:,y_label]
 
+	dataframe_for_x = dataframe_for_x[1:]
+	dataframe_for_y = dataframe_for_y.rolling(window=2).mean()[1:]
+
 	# input normalization
 	sc = StandardScaler()
 	dataset_for_x = sc.fit_transform(dataframe_for_x)

@@ -11,7 +11,7 @@ flags.DEFINE_integer("n_h", 0, "Number of histroy we are interesed in from data"
 flags.DEFINE_integer("n_e", 50, "Number of epoch for training")
 flags.DEFINE_integer("b_s", 40, "Size of batch for each training epoch")
 # flags.DEFINE_string("f_n", "0415233753_log_mod2.csv", "filename of data file")
-flags.DEFINE_string("f_n", "0424_merged.csv", "filename of data file")
+flags.DEFINE_string("f_n", "0424150024_log_power.csv", "filename of data file")
 flags.DEFINE_string("f_dir", "data/", "data file directory")
 
 

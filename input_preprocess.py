@@ -26,6 +26,10 @@ def get_current(data):
 
 	return data
 
+def get_moving_average(data, window):
+
+
+
 if __name__ == '__main__':
 	x = pd.read_csv("0415233753_log_mod2.csv")
 
