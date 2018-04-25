@@ -26,8 +26,12 @@ def get_current(data):
 
 	return data
 
-def get_moving_average(data, window):
+def get_moving_average(data, index_list, window):
 
+	for i in index_list:
+		data[i] = data[i].rolling(window=window).mean()
+
+	return data[window-1:]
 
 
 if __name__ == '__main__':

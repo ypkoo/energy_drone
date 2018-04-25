@@ -46,8 +46,7 @@ FLAGS = config.flags.FLAGS
 
 if __name__ == '__main__':
 
-	dataframe_for_x = pd.read_csv(FLAGS.f_dir+FLAGS.f_n)
-	dataframe_for_y = pd.read_csv(FLAGS.f_dir+FLAGS.f_n)
+	dataframe = pd.read_csv(FLAGS.f_dir+FLAGS.f_n)
 
 	HISTORY_NUM = FLAGS.n_h
 
@@ -60,20 +59,18 @@ if __name__ == '__main__':
 		for n in range(HISTORY_NUM):
 			x_labels.append(l+"_shifted_by_" + str(n+1))	
 
-	dataframe_for_x = ip.make_history(dataframe_for_x, history_labels, HISTORY_NUM)
-	dataframe_for_x = dataframe_for_x.loc[:,x_labels]
-	dataframe_for_y = dataframe_for_y.loc[:,y_label]
+	dataframe = ip.make_history(dataframe, history_labels, HISTORY_NUM)
 
-	dataframe_for_x = dataframe_for_x[1:]
-	dataframe_for_y = dataframe_for_y.rolling(window=2).mean()[1:]
+	dataframe = ip.get_moving_average(dataframe, ['power'], 2)
 
 	# input normalization
 	sc = StandardScaler()
-	dataset_for_x = sc.fit_transform(dataframe_for_x)
-	dataset_for_y = dataframe_for_y[HISTORY_NUM:].values
+	x_data = sc.fit_transform(dataframe[x_labels])
+	y_data = dataframe[y_label].values
 
-	x_data = dataset_for_x
-	y_data = dataset_for_y
+	print dataframe
+	print x_data
+	print y_data
 
 
 	log.logger.info("x_shape: " + str(x_data.shape) + ", y_shape:" + str(y_data.shape))
